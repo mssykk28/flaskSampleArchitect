@@ -1,12 +1,20 @@
 from flask import Flask
 
-app = Flask(__name__)
+from app import blueprint
+from app.config import cors
 
 
-@app.route("/")
-def hello_world():  # put application's code here
-    return "Hello World!"
+def create_app():  # noqa: ANN201
+    flask_app = Flask(__name__)
+    flask_app.config["RESTX_MASK_SWAGGER"] = False
+
+    cors.cors.init_app(flask_app)
+
+    flask_app.register_blueprint(blueprint, url_prefix="/")
+
+    return flask_app
 
 
 if __name__ == "__main__":
-    app.run()
+    app = create_app()
+    app.run(debug=True)
