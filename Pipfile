@@ -8,6 +8,7 @@ flask = "*"
 flask_restx = "*"
 flask_cors = "*"
 sqlalchemy = "*"
+pymysql = "*"
 
 
 [dev-packages]
@@ -20,6 +21,7 @@ flake8-use-fstring = "*"
 black = "*"
 isort = "*"
 pre-commit = "*"
+alembic = "*"
 
 [requires]
 python_version = "3.9"

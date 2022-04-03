@@ -1,4 +1,4 @@
-from config.database import Base
+from db import Base
 from sqlalchemy.dialects.mysql import BOOLEAN, DATETIME, INTEGER, VARCHAR
 from sqlalchemy.schema import Column
 
