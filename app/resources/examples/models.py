@@ -39,7 +39,7 @@ class ExampleModel:
         title="example_datetime",
         description="日時サンプル",
         required=True,
-        example="2022-03-01T08:09:10+00:00",
+        example="2022-03-01T08:09:10",
     )
 
     example_boolean = fields.Boolean(
