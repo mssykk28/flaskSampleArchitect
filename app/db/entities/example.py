@@ -7,7 +7,7 @@ class Example(Base):
     __tablename__ = "example"
 
     id = Column(INTEGER, primary_key=True)
-    example_string = Column(VARCHAR)
-    example_number = Column(INTEGER)
-    example_datetime = Column(DATETIME)
-    example_boolean = Column(BOOLEAN)
+    example_string = Column(VARCHAR, nullable=False)
+    example_number = Column(INTEGER, nullable=True)
+    example_datetime = Column(DATETIME, nullable=True)
+    example_boolean = Column(BOOLEAN, nullable=True)

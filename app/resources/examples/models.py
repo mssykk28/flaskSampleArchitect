@@ -1,13 +1,13 @@
 from copy import deepcopy
 
-from flask_restx import fields
+from utils.custom_fields import Boolean, DateTime, Integer, String
 
 
 class ExampleModel:
     def __init__(self, api):  # noqa: ANN001
         self.api = api
 
-    id = fields.Integer(
+    id = Integer(
         title="id",
         description="id",
         required=False,
@@ -17,36 +17,40 @@ class ExampleModel:
         readonly=True,
     )
 
-    example_string = fields.String(
+    example_string = String(
         title="example_string",
         description="文字列サンプル",
         required=True,
         example="文字列サンプル",
         min_length=1,
         max_length=128,
+        nullable=False,
     )
 
-    example_number = fields.Integer(
+    example_number = Integer(
         title="example_number",
         description="数値サンプル",
         required=True,
         example=123,
         min=1,
         max=4294967295,
+        nullable=True,
     )
 
-    example_datetime = fields.DateTime(
+    example_datetime = DateTime(
         title="example_datetime",
         description="日時サンプル",
         required=True,
         example="2022-03-01T08:09:10",
+        nullable=True,
     )
 
-    example_boolean = fields.Boolean(
+    example_boolean = Boolean(
         title="example_boolean",
         description="真偽値サンプル",
         required=True,
         example=False,
+        nullable=True,
     )
 
     def example_get_response_model(self) -> dict:
